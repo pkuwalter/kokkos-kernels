@@ -3,12 +3,13 @@
 #=================== Settings ==========================================
 #=======================================================================
 
-KOKKOS_PATH ?= ${HOME}/Kokkos/kokkos
-KOKKOSKERNELS_PATH ?= ${HOME}/Kokkos/kokkos-kernels
+KOKKOS_PATH ?= /vpublic01/frog/zhengzhigao/kokkospro/kokkos
+KOKKOSKERNELS_PATH ?= /vpublic01/frog/zhengzhigao/kokkospro/kokkos-kernels
 KOKKOSKERNELS_SRC_PATH ?= ${KOKKOSKERNELS_PATH}
 GTEST_PATH = ${KOKKOS_PATH}/tpls/gtest
 
-KOKKOS_DEVICES=OpenMP
+KOKKOS_DEVICES=Cuda
+#====OpenMP
 KOKKOS_CUDA_OPTIONS=enable_lambda
 
 KOKKOSKERNELS_SCALARS="'double,complex<double>'"
