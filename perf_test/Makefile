@@ -8,7 +8,7 @@ KOKKOSKERNELS_PATH ?= /vpublic01/frog/zhengzhigao/kokkospro/kokkos-kernels
 KOKKOSKERNELS_SRC_PATH ?= ${KOKKOSKERNELS_PATH}
 GTEST_PATH = ${KOKKOS_PATH}/tpls/gtest
 
-KOKKOS_DEVICES=Cuda
+KOKKOS_DEVICES=OpenMP
 #====OpenMP
 KOKKOS_CUDA_OPTIONS=enable_lambda
 
