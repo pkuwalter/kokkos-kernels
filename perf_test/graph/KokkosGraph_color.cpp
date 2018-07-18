@@ -438,14 +438,20 @@ int main (int argc, char ** argv){
   Kokkos::initialize( Kokkos::InitArguments( num_threads, -1, device_id ) );
   Kokkos::print_configuration(std::cout);
 
+  std::<<"==========now we are in the main function========="<<std::endl;
+
 #if defined( KOKKOS_ENABLE_OPENMP )
 
+  std::<<"==========now we are ENABLING_OPENMP========="<<std::endl;
+
   if (params.use_openmp) {
+    std::<<"==========now we are use  OPENMP========="<<std::endl;
 #ifdef KOKKOSKERNELS_MULTI_MEM
     KokkosKernels::Experiment::run_multi_mem_experiment
     <size_type, idx, Kokkos::OpenMP, Kokkos::OpenMP::memory_space, Kokkos::HostSpace>(
         params
         );
+    std::<<"==========now OPENMP run_multi_mem_experiment Called========="<<std::endl;
 #else
 
     KokkosKernels::Experiment::run_multi_mem_experiment
@@ -457,12 +463,15 @@ int main (int argc, char ** argv){
 #endif
 
 #if defined( KOKKOS_ENABLE_CUDA )
+  std::<<"==========now we are ENABLING_CUDA========="<<std::endl;
   if (params.use_cuda) {
+    std::<<"==========now we are use  CUDA========="<<std::endl;
 #ifdef KOKKOSKERNELS_MULTI_MEM
     KokkosKernels::Experiment::run_multi_mem_experiment
     <size_type, idx, Kokkos::Cuda, Kokkos::Cuda::memory_space, Kokkos::CudaHostPinnedSpace>(
         params
         );
+    std::<<"==========now CUDA run_multi_mem_experiment Called========="<<std::endl;
 #else
     KokkosKernels::Experiment::run_multi_mem_experiment
     <size_type, idx, Kokkos::Cuda, Kokkos::Cuda::memory_space, Kokkos::Cuda::memory_space>(
